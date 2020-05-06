@@ -1,0 +1,15 @@
+https://medium.com/searce/deploy-microsoft-sql-server-on-google-kubernetes-engine-gke-14d646f05153
+
+https://cloud.google.com/kubernetes-engine/docs/how-to/exposing-apps
+
+https://cloud.google.com/kubernetes-engine/docs/concepts/service
+https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/
+
+                  //name of pod
+kubectl exec -it shell-demo -- /bin/bash  //open shell
+//installing telnet to a pod 
+apt-get update
+apt-get install iputils-ping   //install ping
+apt-get install telnet     //install telnet
+
+

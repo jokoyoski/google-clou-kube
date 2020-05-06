@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  #Oriignal name of the Deployemnt
+  name: blogapp-deployment
+  
+
+spec:
+  selector: #app it is refrencing  
+    matchLabels:
+     app: blogapp
+  replicas: 2
+
+  template: #template for the pods.  # This is the pod section
+     metadata: 
+        labels: 
+            app: blogapp
+
+     spec:  #This is the container section
+      containers:
+
+       - name: blog-app
+
+         image: jokoyoski/blogapp:latest
+
+         env: 
+           - name: DB_CONNECTION_STRING
+
+             value: Server=mssql-services;Database=blogdb;User=sa;Password=Jokoyoski200@
+         ports:
+
+           - containerPort: 80
+             

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  #Oriignal name of the Deployemnt
+  name: react-deploy
+  
+
+spec:
+  selector: #app it is refrencing  
+    matchLabels:
+     app: react-pod
+  replicas: 2
+
+  template: #template for the pods.  # This is the pod section
+     metadata: 
+        labels: 
+            app: react-pod
+
+     spec:  #This is the container section
+      containers:
+
+       - name: react-container
+
+         image: jokoyoski/judeapp123:v1

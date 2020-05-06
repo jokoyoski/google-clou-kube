@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata: #name of the service
+    name: fleetman-webapp
+
+spec:
+    ports:
+    - name: http
+      port: 80
+      nodePort: 30082
+
+    #this defines the pod represented by this services
+    selector:
+        app: webapp
+    
+    type: NodePort
+
+

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  #Oriignal name of the Deployemnt
+  name: position-simulator
+  
+
+spec:
+  selector: #app it is refrencing  
+    matchLabels:
+     app: position-simulator
+  replicas: 2
+
+  template: #template for the pods.  # This is the pod section
+     metadata: 
+        labels: 
+            app: position-simulator
+
+     spec:  #This is the container section
+      containers:
+
+       - name: web-app
+
+         image: richardchesterwood/k8s-fleetman-position-simulator:release1
+
+         env: 
+           - name: SPRING_PROFILES_ACTIVE
+
+             value: production-microservice

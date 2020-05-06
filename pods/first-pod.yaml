@@ -1,0 +1,16 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+
+  name: webapp
+  labels: # used by service to find Pod
+    app: webapp
+
+spec:
+  containers:
+
+  - name: webapp
+
+    image: richardchesterwood/k8s-fleetman-webapp-angular:release0

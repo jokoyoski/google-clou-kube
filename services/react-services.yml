@@ -1,0 +1,43 @@
+kind: Service
+apiVersion: v1
+metadata: #name of the service
+    name: react-services
+
+spec:
+    ports:
+    - name: http
+      port: 3000
+
+   
+
+      #NodePort is the port that users are interacting with from outside to service
+      #Port is the port that the service is using inrernally
+      #TargePort is the port that the image in the pod is using
+      nodePort: 30087
+      targetPort: 3000 
+
+    
+     
+      
+
+    #this defines the pod represented by this services
+    selector:
+        app: react-pod
+    #This signifies that we want to use NodePort, this means that we want to access the service on the browser , that is why we specified the node port
+    #ClusterIp is used in the cluster e.g MicroServices
+
+    type: NodePort
+
+
+
+
+    #to expose your service on gcp
+
+#type this gcloud config set project corded-bivouac-271305
+# where corded-bivouac-271305 is the name of the project 
+
+#then gcloud compute firewall-rules create test-node-port --allow tcp:30080
+#gcloud compute firewall-rules update test-node-port --allow tcp:30080-30099     update
+
+
+

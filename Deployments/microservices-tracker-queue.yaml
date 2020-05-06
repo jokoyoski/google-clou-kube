@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  #Oriignal name of the Deployemnt
+  name: queue-deploy
+  
+
+spec:
+  selector: #app it is refrencing  
+    matchLabels:
+     app: queue-pod
+  replicas: 2
+
+  template: #template for the pods.  # This is the pod section
+     metadata: 
+        labels: 
+            app: queue-pod
+
+     spec:  #This is the container section
+      containers:
+
+       - name: queue-container
+
+         image: richardchesterwood/k8s-fleetman-queue:release1
